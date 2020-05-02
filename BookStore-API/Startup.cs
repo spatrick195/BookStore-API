@@ -15,6 +15,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.IO;
+using BookStore_API.Contracts;
+using BookStore_API.Services;
 
 namespace BookStore_API
 {
@@ -35,6 +37,14 @@ namespace BookStore_API
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddCors(p =>
+            {
+                p.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
@@ -47,6 +57,8 @@ namespace BookStore_API
                 var xpath = Path.Combine(AppContext.BaseDirectory, xfile); // combine paths
                 c.IncludeXmlComments(xpath);
             });
+
+            services.AddSingleton<ILoggerService, LoggerService>();
             services.AddControllers();
         }
 
@@ -72,6 +84,7 @@ namespace BookStore_API
             });
 
             app.UseHttpsRedirection();
+            app.UseCors("CorsPolicy");
             app.UseRouting();
 
             app.UseAuthentication();
@@ -79,7 +92,7 @@ namespace BookStore_API
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
+                endpoints.MapControllers();
             });
         }
     }

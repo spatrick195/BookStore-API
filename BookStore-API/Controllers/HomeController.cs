@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BookStore_API.Contracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,6 +15,13 @@ namespace BookStore_API.Controllers
     [ApiController]
     public class HomeController : ControllerBase
     {
+        private readonly ILoggerService _logger;
+
+        public HomeController(ILoggerService logger)
+        {
+            _logger = logger;
+        }
+
         /// <summary>
         /// Get values
         /// </summary>
@@ -22,6 +30,7 @@ namespace BookStore_API.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
+            _logger.LogInfo("Accessed Home Controller");
             return new string[] { "value1", "value2" };
         }
 
@@ -34,6 +43,8 @@ namespace BookStore_API.Controllers
         [HttpGet("{id}", Name = "Get")]
         public string Get(int id)
         {
+            _logger.LogDebug("Got Value");
+
             return "value";
         }
 
@@ -41,6 +52,7 @@ namespace BookStore_API.Controllers
         [HttpPost]
         public void Post([FromBody] string value)
         {
+            _logger.LogError("Error Post");
         }
 
         // PUT: api/Home/5
@@ -53,6 +65,7 @@ namespace BookStore_API.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            _logger.LogWarn("");
         }
     }
 }
