@@ -15,7 +15,7 @@ namespace BookStore_API.Contracts
 
         Task<bool> Update(T entity);
         
-        Task<bool> doesExist(int id);
+        Task<bool> DoesExist(int id);
 
         Task<bool> Delete(T entity);
 
