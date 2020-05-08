@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,12 +16,11 @@ namespace BookStore_API.Controllers
     public class HomeController : ControllerBase
     {
         private readonly ILoggerService _logger;
-
         public HomeController(ILoggerService logger)
         {
             _logger = logger;
         }
-
+        
         /// <summary>
         /// Get values
         /// </summary>
@@ -48,6 +47,7 @@ namespace BookStore_API.Controllers
             return "value";
         }
 
+        
         // POST: api/Home
         [HttpPost]
         public void Post([FromBody] string value)

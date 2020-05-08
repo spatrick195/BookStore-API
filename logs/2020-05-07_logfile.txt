@@ -1,0 +1,24 @@
+2020-05-07 00:28:49.0558 DEBUG init main
+2020-05-07 00:28:54.1624 INFO Application started. Press Ctrl+C to shut down.
+2020-05-07 00:28:54.1868 INFO Hosting environment: Development
+2020-05-07 00:28:54.2119 INFO Content root path: D:\Dev\BookStore-API\BookStore-API
+2020-05-07 00:30:16.0084 INFO Attempting to get all authors
+2020-05-07 00:30:19.4460 INFO Getting all authors successful
+2020-05-07 01:19:56.3648 DEBUG init main
+2020-05-07 01:19:57.3739 INFO Now listening on: https://localhost:5001
+2020-05-07 01:19:57.3739 INFO Now listening on: http://localhost:5000
+2020-05-07 01:19:57.3813 INFO Application started. Press Ctrl+C to shut down.
+2020-05-07 01:19:57.3813 INFO Hosting environment: Development
+2020-05-07 01:19:57.3813 INFO Content root path: D:\Dev\BookStore-API\BookStore-API
+2020-05-07 22:49:06.6924 DEBUG init main
+2020-05-07 22:49:08.6455 INFO Now listening on: https://localhost:5001
+2020-05-07 22:49:08.6455 INFO Now listening on: http://localhost:5000
+2020-05-07 22:49:08.6455 INFO Application started. Press Ctrl+C to shut down.
+2020-05-07 22:49:08.6606 INFO Hosting environment: Development
+2020-05-07 22:49:08.6606 INFO Content root path: D:\Dev\BookStore-API\BookStore-API
+2020-05-07 22:55:01.7161 WARN Attempting to create author
+2020-05-07 22:55:04.9069 INFO Author created successfully
+2020-05-07 22:55:25.7860 INFO Attempted to get author with id: 1
+2020-05-07 22:55:26.0708 INFO Successfully retrieved author with id: 1
+2020-05-07 22:55:44.2146 INFO Attempted to get author with id: 1
+2020-05-07 22:55:44.2299 INFO Successfully retrieved author with id: 1

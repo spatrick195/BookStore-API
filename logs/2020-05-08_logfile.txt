@@ -1,0 +1,15 @@
+2020-05-08 19:06:39.7580 DEBUG init main
+2020-05-08 19:06:51.6841 INFO Now listening on: https://localhost:5001
+2020-05-08 19:06:51.6841 INFO Now listening on: http://localhost:5000
+2020-05-08 19:06:51.6841 INFO Application started. Press Ctrl+C to shut down.
+2020-05-08 19:06:51.6935 INFO Hosting environment: Development
+2020-05-08 19:06:51.6935 INFO Content root path: D:\Dev\BookStore-API\BookStore-API
+2020-05-08 19:08:39.4507 INFO Attempting to delete Author ID: 1
+2020-05-08 19:10:05.4614 INFO Attempting to delete Author ID: 1
+2020-05-08 19:10:05.6821 WARN Attempted to delete author, but no author was found with the corresponding Id: 1
+2020-05-08 19:10:21.3953 INFO Attempted to get author with id: 1
+2020-05-08 19:10:21.4047 WARN Attempted to get author with id: 1 - returned not found
+2020-05-08 19:10:22.8818 INFO Attempted to get author with id: 1
+2020-05-08 19:10:22.8818 WARN Attempted to get author with id: 1 - returned not found
+2020-05-08 19:10:23.2962 INFO Attempted to get author with id: 1
+2020-05-08 19:10:23.2962 WARN Attempted to get author with id: 1 - returned not found

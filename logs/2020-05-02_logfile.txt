@@ -6,3 +6,9 @@
 2020-05-02 21:14:09.2092 INFO Application started. Press Ctrl+C to shut down.
 2020-05-02 21:14:09.2092 INFO Hosting environment: Development
 2020-05-02 21:14:09.2306 INFO Content root path: D:\Dev\BookStore-API\BookStore-API
+2020-05-02 23:47:08.2249 DEBUG init main
+2020-05-02 23:47:11.4743 INFO Now listening on: https://localhost:5001
+2020-05-02 23:47:11.4743 INFO Now listening on: http://localhost:5000
+2020-05-02 23:47:11.4743 INFO Application started. Press Ctrl+C to shut down.
+2020-05-02 23:47:11.4743 INFO Hosting environment: Development
+2020-05-02 23:47:11.4743 INFO Content root path: D:\Dev\BookStore-API\BookStore-API
