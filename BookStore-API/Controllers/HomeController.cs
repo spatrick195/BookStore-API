@@ -1,28 +1,30 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BookStore_API.Contracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace BookStore_API.Controllers
 {
     /// <summary>
-    /// Handles requests for the api/home controller
+    /// THis is a test API controller
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class HomeController : ControllerBase
     {
         private readonly ILoggerService _logger;
+
         public HomeController(ILoggerService logger)
         {
             _logger = logger;
         }
-        
+
         /// <summary>
-        /// Get values
+        /// Gets Values 
         /// </summary>
         /// <returns></returns>
         // GET: api/Home
@@ -34,7 +36,7 @@ namespace BookStore_API.Controllers
         }
 
         /// <summary>
-        /// Get a specific value
+        /// Get a value
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -42,17 +44,15 @@ namespace BookStore_API.Controllers
         [HttpGet("{id}", Name = "Get")]
         public string Get(int id)
         {
-            _logger.LogDebug("Got Value");
-
+            _logger.LogDebug("Got A Value");
             return "value";
         }
 
-        
         // POST: api/Home
         [HttpPost]
         public void Post([FromBody] string value)
         {
-            _logger.LogError("Error Post");
+            _logger.LogError("This is an error");
         }
 
         // PUT: api/Home/5
@@ -65,7 +65,7 @@ namespace BookStore_API.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            _logger.LogWarn("");
+            _logger.LogWarn("This is a warning");
         }
     }
 }

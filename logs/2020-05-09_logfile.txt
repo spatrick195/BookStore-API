@@ -1,7 +1,0 @@
-2020-05-09 22:54:44.9766 DEBUG init main
-2020-05-09 22:54:47.0885 WARN No type was specified for the decimal column 'Price' on entity type 'Book'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
-2020-05-09 22:54:50.4141 INFO Now listening on: https://localhost:5001
-2020-05-09 22:54:50.4141 INFO Now listening on: http://localhost:5000
-2020-05-09 22:54:50.4141 INFO Application started. Press Ctrl+C to shut down.
-2020-05-09 22:54:50.4141 INFO Hosting environment: Development
-2020-05-09 22:54:50.4141 INFO Content root path: D:\Dev\BookStore-API\BookStore-API

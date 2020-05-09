@@ -10,7 +10,6 @@ namespace BookStore_API.Services
     public class LoggerService : ILoggerService
     {
         private static ILogger logger = LogManager.GetCurrentClassLogger();
-
         public void LogDebug(string message)
         {
             logger.Debug(message);

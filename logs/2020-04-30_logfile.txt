@@ -1,5 +1,0 @@
-2020-04-30 23:48:03.8548 DEBUG init main
-2020-04-30 23:48:05.8216 INFO Application started. Press Ctrl+C to shut down.
-2020-04-30 23:48:05.8428 INFO Hosting environment: Development
-2020-04-30 23:48:05.8556 INFO Content root path: D:\Dev\BookStore-API\BookStore-API
-2020-04-30 23:48:18.7922 INFO Accessed Home Controller
