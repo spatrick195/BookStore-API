@@ -24,6 +24,7 @@ namespace BookStore_API.Controllers
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ILoggerService _logger;
         private readonly IConfiguration _config;
+
         public UsersController(SignInManager<IdentityUser> signInManager,
             UserManager<IdentityUser> userManager,
             ILoggerService logger,
@@ -34,11 +35,87 @@ namespace BookStore_API.Controllers
             _logger = logger;
             _config = config;
         }
+
+        /// <summary>
+        /// Register User Endpoint
+        /// </summary>
+        /// <param name="userDTO"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("register")]
+        [AllowAnonymous]
+        public async Task<IActionResult> Register([FromBody] UserDTO userDTO)
+        {
+            var location = GetControllerActionNames();
+            try
+            {
+                var username = userDTO.EmailAddress;
+                var password = userDTO.Password;
+                _logger.LogInfo($"{location}: Attempting to register user");
+                var user = new IdentityUser { Email = username, UserName = username };
+                var result = await _userManager.CreateAsync(user, password);
+
+                if (!result.Succeeded)
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        _logger.LogError($"{location}: {error.Code} {error.Description}");
+                    }
+                    return InternalError($"{location}: {username} User Registration attempt failed");
+                }
+
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return InternalError($"{location}: {e.Message} - {e.InnerException}");
+            }
+        }
+
+        // TODO: Make new list for DTO user, iterate through and register
+        // fix later if error occurs when testing
+        [HttpPost]
+        [Route("regusers")]
+        [AllowAnonymous]
+        public async Task<IActionResult> RegisterUsers([FromBody] UsersDTO usersDTO)
+        {
+            var location = GetControllerActionNames();
+            try
+            {
+                for (var i = 0; i < usersDTO.Users.Count(); i++)
+                {
+                    // big think
+                    //
+                    var username = usersDTO.Users[i].EmailAddress;
+                    var password = usersDTO.Users[i].Password;
+                    var user = new IdentityUser { Email = username, UserName = username };
+                    var result = await _userManager.CreateAsync(user, password);
+
+                    if (!result.Succeeded)
+                    {
+                        foreach (var error in result.Errors)
+                        {
+                            _logger.LogError($"{location}: {error.Code} {error.Description}");
+                        }
+                        return InternalError($"{location}: {username} User Registration attempt failed");
+                    }
+                }
+                _logger.LogInfo($"{location}: Attempting to register user");
+
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return InternalError($"{location}: {e.Message} - {e.InnerException}");
+            }
+        }
+
         /// <summary>
         /// User Login Endpoint
         /// </summary>
         /// <param name="userDTO"></param>
         /// <returns></returns>
+        [Route("login")]
         [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] UserDTO userDTO)
@@ -46,7 +123,7 @@ namespace BookStore_API.Controllers
             var location = GetControllerActionNames();
             try
             {
-                var username = userDTO.Username;
+                var username = userDTO.EmailAddress;
                 var password = userDTO.Password;
                 _logger.LogInfo($"{location}: Login Attempt from user {username} ");
                 var result = await _signInManager.PasswordSignInAsync(username, password, false, false);
@@ -105,4 +182,4 @@ namespace BookStore_API.Controllers
             return StatusCode(500, "Something went wrong. Please contact the Administrator");
         }
     }
-}
+}   
