@@ -15,16 +15,17 @@ namespace BookStore_UI.Models
 
         [Required]
         [DataType(DataType.Password)]
-        [StringLength(15, ErrorMessage = "Your password is limited to {0}", MinimumLength = 6)]
+        [StringLength(15, ErrorMessage = "Your password is limited to {2} to {1} characters", MinimumLength = 6)]
         public string Password { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "Passwords do not match")]
+        [Display(Name = "Confirm Password")]
+        [Compare("Password", ErrorMessage = "The passwords do not match.")]
         public string ConfirmPassword { get; set; }
     }
 
-    public class UserModel
+    public class LoginModel
     {
         [Required]
         [EmailAddress]
@@ -33,7 +34,6 @@ namespace BookStore_UI.Models
 
         [Required]
         [DataType(DataType.Password)]
-        [StringLength(15, ErrorMessage = "Your password is limited to {0}", MinimumLength = 6)]
         public string Password { get; set; }
     }
 }

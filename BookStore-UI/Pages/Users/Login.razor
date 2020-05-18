@@ -1,19 +1,22 @@
-﻿@page "/Register"
+﻿@page "/login"
+
 @using BookStore_UI.Models
 @using BookStore_UI.Contracts
 
 @inject IAuthenticationRepository _authRepo
-@inject NavigationManager _navigationManager
-<h3 class="card-title">Register</h3>
+@inject NavigationManager _navManager
+
+<h3>Login</h3>
+
 <div class="card">
     @if (!response)
     {
         <div class="alert alert-danger">
-            <p>Something went wrong with your registration. Check all the information you have entered is correct and try again.</p>
+            <p>Something went wrong with your login attempt.</p>
         </div>
     }
     <div class="card-body">
-        <EditForm Model="Model" OnSubmit="HandleRegistration">
+        <EditForm Model="Model" OnSubmit="HandleLogin">
             <DataAnnotationsValidator />
             <ValidationSummary />
             <div class="form-group">
@@ -26,25 +29,20 @@
                 <InputText Id="password" type="password" class="form-control" placeholder="Password" @bind-Value="Model.Password" />
                 <ValidationMessage For="@(() => Model.Password)" />
             </div>
-            <div class="form-group">
-                <label for="confirmpassword">Confirm Password</label>
-                <InputText Id="confirmpassword" type="password" class="form-control" placeholder="Confirm Password" @bind-Value="Model.ConfirmPassword" />
-                <ValidationMessage For="@(() => Model.ConfirmPassword)" />
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">Register</button>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
         </EditForm>
     </div>
 </div>
 
 @code {
-    private RegistrationModel Model = new RegistrationModel();
+    private LoginModel Model = new LoginModel();
     private bool response = true;
-    private async Task HandleRegistration()
+    private async Task HandleLogin()
     {
-        response = await _authRepo.Register(Model);
+        response = await _authRepo.Login(Model);
         if (response)
         {
-            _navigationManager.NavigateTo("/login");
+            _navManager.NavigateTo("/");
         }
     }
 }
