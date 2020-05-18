@@ -1,0 +1,12 @@
+2020-05-18 15:15:29.6941 INFO Users - Register: Attempting to register user
+2020-05-18 15:15:41.0180 INFO Users - Login: Login Attempt from user jacobhallgarth2@gmail.com 
+2020-05-18 15:15:41.1623 INFO Users - Login: jacobhallgarth2@gmail.com Successfully Authenticated
+2020-05-18 15:15:41.2310 INFO Users - Login: Generating Token
+2020-05-18 15:16:11.5781 INFO Users - Login: Login Attempt from user jacobhallgarth2@gmail.com 
+2020-05-18 15:16:11.7673 INFO Users - Login: jacobhallgarth2@gmail.com Successfully Authenticated
+2020-05-18 15:16:11.8013 INFO Users - Login: Generating Token
+2020-05-18 15:17:28.2085 INFO Users - Login: Login Attempt from user jacobhallgarth2@gmail.com 
+2020-05-18 15:17:28.3063 INFO Users - Login: jacobhallgarth2@gmail.com Not Authenticated
+2020-05-18 15:17:30.1571 INFO Users - Login: Login Attempt from user jacobhallgarth2@gmail.com 
+2020-05-18 15:17:30.3050 INFO Users - Login: jacobhallgarth2@gmail.com Successfully Authenticated
+2020-05-18 15:17:30.3859 INFO Users - Login: Generating Token
